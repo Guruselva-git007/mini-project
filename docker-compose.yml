@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: civic_issues_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: civic_issues
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - civic_issues_pgdata:/var/lib/postgresql/data
+
+volumes:
+  civic_issues_pgdata:
